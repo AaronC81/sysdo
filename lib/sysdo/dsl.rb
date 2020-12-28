@@ -1,4 +1,4 @@
-module Watchful
+module Sysdo
   class DSL
     attr_reader :event_sources
 

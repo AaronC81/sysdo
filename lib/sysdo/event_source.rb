@@ -1,4 +1,4 @@
-module Watchful
+module Sysdo
   class EventSource
     attr_accessor :on_fire
 

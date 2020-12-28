@@ -1,4 +1,4 @@
-module Watchful
+module Sysdo
   class EventSource
     class PolledCollectionChange < EventSource
       def initialize(change, poll_rate = 1, &collection)

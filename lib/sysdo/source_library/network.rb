@@ -1,4 +1,4 @@
-module Watchful
+module Sysdo
   module SourceLibrary
     # Only supports Wi-Fi
     module Network

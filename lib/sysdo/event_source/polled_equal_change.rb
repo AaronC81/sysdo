@@ -1,13 +1,13 @@
-module Watchful
+module Sysdo
   class EventSource
-    class PolledChange < EventSource
-      def initialize(poll_rate = 1, &value)        
+    class PolledEqualChange < EventSource
+      def initialize(equal, poll_rate = 1, &value)        
         super() do |s|
           last = value.()
 
           loop do
             now = value.()
-            if last != now
+            if last != now && now == equal
               s.fire(now)
             end
             last = now

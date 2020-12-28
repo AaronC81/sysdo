@@ -1,4 +1,4 @@
-module Watchful
+module Sysdo
   module SourceLibrary
     module Usb
       def self.connected
