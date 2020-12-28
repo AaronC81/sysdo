@@ -1,5 +1,5 @@
 module Sysdo
-  class DSL
+  class Dsl
     attr_reader :event_sources
 
     def initialize
