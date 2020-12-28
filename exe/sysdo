@@ -1,10 +1,20 @@
 #!/usr/bin/env ruby
 require 'sysdo'
+require 'fileutils'
+
+CONFIG_DIRECTORY = File.join(
+  ENV['XDG_CONFIG_HOME'] || File.expand_path('~/.config'),
+  'sysdo',
+)
+FileUtils.mkdir_p(CONFIG_DIRECTORY)
 
 include Sysdo::SourceLibrary
 
 dsl = Sysdo::DSL.new
-dsl.instance_eval(File.read(File.join(__dir__, 'user_config.rb')))
+Dir[File.join(CONFIG_DIRECTORY, '*.rb')].each do |config_file|
+  dsl.instance_eval(File.read(config_file))
+end
+
 threads = dsl.event_sources.map do |src|
   t = Thread.new { src.listen }
   t.abort_on_exception = true
